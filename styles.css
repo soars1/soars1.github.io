@@ -10,7 +10,6 @@ body {
   overflow-x: hidden;
   background: #f3f0e8;
 }
-
 .gs-portfolio {
   --gs-paper: #f3f0e8;
   --gs-ink: #171713;
@@ -18,9 +17,10 @@ body {
   --gs-accent: #006783;
   --gs-line: #cfc8ba;
   --gs-width: min(1120px, calc(100% - 48px));
-  width: 100%;
+  width: 100vw;
+  max-width: none;
   min-height: 100vh;
-  margin: 0;
+  margin-inline: calc(50% - 50vw);
   background: var(--gs-paper);
   color: var(--gs-text);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
@@ -57,20 +57,13 @@ body {
 }
 
 .gs-portfolio :where(a, button):focus {
+  outline: none;
+}
+
+.gs-portfolio :where(a, button):focus-visible {
   outline: 3px solid var(--gs-ink);
   outline-offset: 4px;
   border-radius: 2px;
-}
-
-@supports selector(:focus-visible) {
-  .gs-portfolio :where(a, button):focus:not(:focus-visible) {
-    outline: none;
-  }
-
-  .gs-portfolio :where(a, button):focus-visible {
-    outline: 3px solid var(--gs-ink);
-    outline-offset: 4px;
-  }
 }
 
 #conteudo:focus {
@@ -348,6 +341,44 @@ body {
   line-height: 1.5;
 }
 
+.gs-list-title {
+  max-width: 850px;
+  margin: 58px 0 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.65rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.gs-principles {
+  max-width: 880px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--gs-line);
+}
+
+.gs-principles li {
+  position: relative;
+  padding: 19px 0 19px 27px;
+  border-bottom: 1px solid var(--gs-line);
+}
+
+.gs-principles li::before {
+  position: absolute;
+  top: 19px;
+  left: 0;
+  content: "—";
+  color: var(--gs-accent);
+  font-weight: 800;
+}
+
+.gs-principles strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--gs-ink);
+}
+
 .gs-education-item {
   display: grid;
   grid-template-columns: minmax(150px, 200px) minmax(0, 1fr);
@@ -511,10 +542,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   .gs-portfolio *,
   .gs-portfolio *::before,
   .gs-portfolio *::after {
