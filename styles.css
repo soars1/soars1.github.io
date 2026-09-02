@@ -575,3 +575,22 @@ body {
   word-break: normal;
   overflow-wrap: normal;
 }
+
+.gs-hero h1 {
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+@media (min-width: 761px) {
+  .gs-site-header {
+    gap: 16px;
+  }
+
+  .gs-nav {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+
+  .gs-nav a {
+    white-space: nowrap;
+  }
+}
