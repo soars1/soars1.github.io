@@ -144,7 +144,7 @@ body {
 }
 
 .gs-text-link::after {
-  margin-left: 9px; content: "â†“"; color: var(--gs-accent); transition: transform 160ms ease;
+  margin-left: 9px; content: "↓"; color: var(--gs-accent); transition: transform 160ms ease;
 }
 
 .gs-text-link:hover::after { transform: translateY(3px); }
